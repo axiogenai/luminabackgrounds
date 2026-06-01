@@ -2,7 +2,18 @@
 *.py
 *.json
 !vercel.json
-*.js
+
+# Ignore helper/build JS scripts but keep backgrounds.js
+add_*.js
+bg_*.js
+build_*.js
+debug.js
+extract.js
+fix_*.js
+generator.js
+scan.js
+temp.js
+
 .git
 .github
 .idea
