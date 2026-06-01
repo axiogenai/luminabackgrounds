@@ -1,0 +1,12 @@
+# Ignore python scripts and local databases during deployment
+*.py
+*.json
+!vercel.json
+*.js
+.git
+.github
+.idea
+.vscode
+.venv
+venv/
+__pycache__/

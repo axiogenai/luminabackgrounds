@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumina Backgrounds - 150 Unique Animated Backgrounds</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #050508; color: #f3f4f6; overflow-x: hidden; }
+h1, h2, h3, .outfit { font-family: 'Outfit', sans-serif; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #07070a; }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #333; }
+.hero-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.15) 0%, transparent 55%),
+              radial-gradient(ellipse at 80% 20%, rgba(219,39,119,0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 20% 30%, rgba(59,130,246,0.06) 0%, transparent 50%),
+              #050508; }
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+.hero-orb {
+  position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
+  animation: heroFloat 12s ease-in-out infinite; pointer-events: none;
+}
+.hero-orb-1 { width: 400px; height: 400px; background: rgba(139,92,246,0.3); top: -100px; left: 20%; animation-delay: 0s; }
+.hero-orb-2 { width: 300px; height: 300px; background: rgba(219,39,119,0.2); top: 50px; right: 15%; animation-delay: -4s; }
+.hero-orb-3 { width: 250px; height: 250px; background: rgba(59,130,246,0.15); top: 200px; left: 40%; animation-delay: -8s; }
+@media (max-width: 640px) {
+  .hero-orb { display: none; }
+  .filter-btn { padding: 7px 14px; font-size: 12px; }
+  .stat-pill { padding: 6px 12px; font-size: 11px; gap: 5px; }
+  .bg-preview { height: 180px; }
+  .mta { height: 160px; font-size: 12px; padding: 12px; }
+}
+.bg-card { background: rgba(13,13,17,0.75); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px;
+  overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); backdrop-filter: blur(16px); display:flex; flex-direction:column;
+  position:relative; }
+.bg-card:hover { border-color: rgba(139,92,246,0.35); transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(139,92,246,0.08); }
+.bg-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.3), transparent); opacity:0; transition: opacity 0.4s; }
+.bg-card:hover::before { opacity:1; }
+.bg-preview { position: relative; width: 100%; height: 220px; overflow: hidden; background: #09090c; flex-shrink:0; }
+.preview-label { position:absolute; top:12px; left:12px; background:rgba(10,10,12,0.8); color:#fff; font-size:11px;
+  padding:5px 12px; border-radius:20px; z-index:10; pointer-events:none; border:1px solid rgba(255,255,255,0.1); font-weight:600; backdrop-filter: blur(8px);
+  letter-spacing: 0.02em; }
+.btn-copy { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #d1d5db;
+  padding: 8px 16px; border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s; }
+.btn-copy:hover { background: rgba(255,255,255,0.12); color:#fff; border-color: rgba(255,255,255,0.2); }
+.btn-integrate { background: linear-gradient(135deg, #db2777, #7c3aed); color: #fff;
+  padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: 13px; cursor: pointer; border: none; transition: all 0.25s;
+  box-shadow: 0 4px 16px rgba(124,58,237,0.25); letter-spacing: 0.01em; }
+.btn-integrate:hover { filter: brightness(1.15); box-shadow: 0 6px 24px rgba(124,58,237,0.4); transform: translateY(-1px); }
+.filter-btn { padding: 9px 22px; border-radius: 30px; font-size: 13px; font-weight: 500;
+  color: #9ca3af; border: 1px solid transparent; background: transparent; cursor: pointer; transition: all 0.3s; }
+.filter-btn:hover { color: #fff; background: rgba(255,255,255,0.04); }
+.filter-btn.active { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.tag { display:inline-block; padding:4px 10px; border-radius:20px; font-size:10px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.5px; background:rgba(139,92,246,0.08); color:#a78bfa; border:1px solid rgba(139,92,246,0.15); }
+.nav-glass { background: rgba(5,5,8,0.8); backdrop-filter: blur(24px) saturate(1.2); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.stat-pill { display:inline-flex; align-items:center; gap:8px; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; padding: 8px 18px; font-size: 13px; color: #9ca3af; }
+.stat-pill span { color: #e2e8f0; font-weight: 600; }
+.code-block { background:#07070c; border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:14px;
+  font-family: 'Fira Code', 'Courier New', monospace; font-size: 11px; color:#94a3b8; max-height:180px; overflow-y:auto;
+  white-space:pre-wrap; word-break:break-all; line-height:1.6; }
+#modal { position:fixed; inset:0; background:rgba(3,3,5,0.9); backdrop-filter:blur(24px);
+  z-index:200; display:none; align-items:stretch; justify-content:stretch; padding:0; }
+#modal.open { display:flex; }
+.modal-box { background:#08080d; border:none; border-radius:0;
+  box-shadow:none; width:100%; height:100%; max-width:100%; max-height:100%; }
+.mta { width:100%; height:220px; background:#050508; border:1px solid rgba(255,255,255,0.08);
+  color:#c8ccd4; font-family: 'Fira Code', 'Courier New', monospace; font-size:13px; padding:16px; border-radius:12px; resize:none; outline:none;
+  transition: border-color 0.2s; line-height:1.7; }
+.mta:focus { border-color:#8b5cf6; }
+.btn-run { background:linear-gradient(135deg,#db2777,#7c3aed); color:#fff; padding:10px 24px;
+  border-radius:12px; font-weight:700; font-size:13px; cursor:pointer; border:none; transition:all 0.2s;
+  box-shadow: 0 4px 12px rgba(124,58,237,0.25); }
+.btn-run:hover { filter:brightness(1.1); box-shadow: 0 6px 16px rgba(124,58,237,0.35); }
+.btn-run:disabled { opacity:0.5; cursor:not-allowed; }
+
+.fw-tab { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); color: #9ca3af;
+  padding: 10px 14px; border-radius: 12px; font-size: 13px; cursor: pointer; text-align: center; transition: all 0.2s; font-weight:500; }
+.fw-tab:hover { background: rgba(255,255,255,0.06); color: #fff; }
+.fw-tab.active { background: linear-gradient(135deg, rgba(219,39,119,0.15), rgba(124,58,237,0.15));
+  border-color: rgba(139,92,246,0.4); color: #fff; font-weight: 600; box-shadow: 0 0 12px rgba(139,92,246,0.15); }
+
+.preview-loader {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: #09090c; z-index: 1; transition: opacity 0.4s ease;
+}
+.spinner {
+  width: 28px; height: 28px; border: 2px solid rgba(255,255,255,0.08); border-top-color: #8b5cf6;
+  border-radius: 50%; animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.right-tab {
+  padding: 12px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #9ca3af;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.right-tab:hover {
+  color: #fff;
+}
+.right-tab.active {
+  color: #a78bfa;
+  border-color: #8b5cf6;
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(16, 16, 24, 0.95);
+  border: 1px solid rgba(139,92,246,0.3);
+  color: #e2e8f0;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 9999;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(139,92,246,0.1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
+  opacity: 0;
+  pointer-events: none;
+}
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.search-input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #f3f4f6;
+  padding: 10px 16px 10px 40px;
+  border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  max-width: 320px;
+}
+.search-input:focus {
+  border-color: rgba(139,92,246,0.4);
+  background: rgba(255,255,255,0.06);
+}
+.search-input::placeholder {
+  color: #6b7280;
+}
+.search-wrap {
+  position: relative;
+}
+.search-wrap svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #6b7280;
+}
+</style>
+</head>
+<body>
+<div class="hero-bg"></div>
+
+<nav class="nav-glass fixed top-0 left-0 w-full z-50 px-6 py-3.5">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <div style="width:32px;height:32px;background:linear-gradient(135deg,#db2777,#7c3aed);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <span class="outfit font-bold text-xl text-white tracking-tight">Lumina<span class="text-purple-400">Backgrounds</span></span>
+    </div>
+    <div class="hidden md:flex items-center gap-6">
+      <div class="search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="bg-search" class="search-input" placeholder="Search backgrounds...">
+      </div>
+      <div class="stat-pill"><span>150</span> Backgrounds</div>
+    </div>
+  </div>
+</nav>
+
+<section class="relative pt-28 sm:pt-40 pb-16 sm:pb-24 px-4 sm:px-6 text-center overflow-hidden">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="relative z-10">
+    <div class="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-full px-5 py-2 mb-8">
+      <div style="width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px rgba(34,197,94,0.5);"></div>
+      <span class="text-gray-300 text-sm font-medium">150 backgrounds live &mdash; Updated June 2026</span>
+    </div>
+    <h1 class="outfit text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 sm:mb-8 leading-[0.95] tracking-tight">
+      Premium Animated<br>
+      <span class="text-transparent bg-clip-text" style="background-image:linear-gradient(135deg, #f472b6, #a78bfa, #60a5fa);">Backgrounds</span>
+    </h1>
+    <p class="text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed">Production-ready animated backgrounds with lazy loading, viewport-based rendering, and zero-config integration. Built for React, Vue, Svelte, Next.js &amp; more.</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#grid" class="inline-flex items-center gap-2 bg-white text-black font-bold px-8 py-4 rounded-full text-sm hover:bg-gray-100 transition-all hover:shadow-lg hover:shadow-white/10">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Browse Collection
+      </a>
+      <a href="#grid" class="inline-flex items-center gap-2 bg-white/[0.06] text-white border border-white/10 font-semibold px-8 py-4 rounded-full text-sm hover:bg-white/10 transition-all">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Quick Integrate
+      </a>
+    </div>
+    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-8 sm:mt-12">
+      <div class="stat-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span>Zero-Config</span></div>
+      <div class="stat-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> <span>60fps</span> Optimized</div>
+      <div class="stat-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> <span>6</span> Frameworks</div>
+      <div class="stat-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z"/></svg> <span>WebGL</span> &amp; CSS</div>
+    </div>
+  </div>
+</section>
+
+<section id="grid" class="py-16 px-4 md:px-8 max-w-7xl mx-auto">
+  <div class="flex flex-col items-center gap-4 mb-10">
+    <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 bg-white/[0.03] rounded-2xl sm:rounded-full border border-white/[0.06]">
+      <button class="filter-btn active" data-cat="All">All 150</button>
+      <button class="filter-btn" data-cat="Gradient">Gradients</button>
+      <button class="filter-btn" data-cat="Particle">Particles</button>
+      <button class="filter-btn" data-cat="Wave">Waves</button>
+      <button class="filter-btn" data-cat="Tech">Tech/AI</button>
+      <button class="filter-btn" data-cat="3D">3D/WebGL</button>
+      <button class="filter-btn" data-cat="Galaxy">&#127775; Galaxy</button>
+      <button class="filter-btn" data-cat="Premium">✨ Premium</button>
+    </div>
+    <div class="search-wrap md:hidden w-full">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input bg-search-mobile" style="max-width:100%;" placeholder="Search backgrounds..." oninput="document.getElementById('bg-search').value=this.value;searchQuery=this.value.trim();renderCards(activeCat);">
+    </div>
+  </div>
+  <div id="cards-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+</section>
+<div id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box w-full h-full flex flex-col md:flex-row overflow-hidden">
+    <!-- LEFT PANEL -->
+    <div class="flex flex-col gap-4 md:gap-5 p-4 md:p-8 md:w-[420px] lg:w-[520px] flex-shrink-0 overflow-y-auto border-r border-white/8" style="background:#0a0a10;">
+      <div class="flex items-center justify-between">
+        <h2 class="outfit text-3xl font-bold text-white flex items-center gap-3">
+          <span style="font-size:28px;">🤖</span> AI Integration Assistant
+        </h2>
+        <button class="md:hidden text-gray-500 hover:text-white text-3xl" onclick="closeModal()">&times;</button>
+      </div>
+      <p class="text-gray-400 text-sm leading-relaxed" id="modal-bg-name">Select a background and paste your HTML below.</p>
+      <div>
+        <label class="text-xs text-purple-400 font-bold uppercase tracking-widest block mb-2">Select Target Framework</label>
+        <div class="grid grid-cols-3 gap-2.5" id="framework-selector">
+          <button class="fw-tab active" data-fw="html">Vanilla HTML</button>
+          <button class="fw-tab" data-fw="split">HTML + CSS (Split)</button>
+          <button class="fw-tab" data-fw="react">React (JSX)</button>
+          <button class="fw-tab" data-fw="next">Next.js</button>
+          <button class="fw-tab" data-fw="vue">Vue 3 SFC</button>
+          <button class="fw-tab" data-fw="svelte">Svelte</button>
+          <button class="fw-tab" data-fw="tailwind">Tailwind CSS</button>
+        </div>
+      </div>
+      <div id="target-selector-wrapper">
+        <label class="text-xs text-purple-400 font-bold uppercase tracking-widest block mb-2">Target Container Selector (Optional)</label>
+        <input type="text" id="target-selector" class="mta py-2.5 px-4 text-sm text-white" style="height:44px;background:#050508;border:1px solid rgba(255,255,255,0.08);border-radius:12px;width:100%;outline:none;" placeholder="e.g. #landing-page, .hero-section (Default: Full Screen)">
+        <div id="detected-selectors-container" class="mt-3 hidden">
+          <span class="text-xs text-gray-500 block mb-1.5">Detected Containers (Click to Target):</span>
+          <div id="detected-selectors" class="flex flex-wrap gap-2 max-h-[70px] overflow-y-auto"></div>
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col gap-4 min-h-[280px]">
+        <div id="single-input-wrapper" class="flex-1 flex flex-col">
+          <label class="text-xs text-purple-400 font-bold uppercase tracking-widest block mb-2" id="input-label">Your HTML Code</label>
+          <textarea id="input-code" class="mta flex-1" placeholder="Paste your code here..."></textarea>
+        </div>
+        <div id="split-input-wrapper" class="flex-1 hidden flex-col gap-4">
+          <div class="flex-1 flex flex-col min-h-[130px]">
+            <label class="text-xs text-purple-400 font-bold uppercase tracking-widest block mb-2">Your HTML Code</label>
+            <textarea id="input-html-code" class="mta flex-1" placeholder="Paste HTML here..."></textarea>
+          </div>
+          <div class="flex-1 flex flex-col min-h-[130px]">
+            <label class="text-xs text-purple-400 font-bold uppercase tracking-widest block mb-2">Your CSS Code</label>
+            <textarea id="input-css-code" class="mta flex-1" placeholder="Paste CSS here..."></textarea>
+          </div>
+        </div>
+      </div>
+      <button id="run-btn" class="btn-run py-4 text-base tracking-wide font-bold" onclick="runIntegration()" style="border-radius:14px;">⚡ Smart AI Integrate</button>
+    </div>
+    <!-- RIGHT PANEL -->
+    <div class="flex-1 flex flex-col p-4 md:p-8 overflow-hidden" style="background:#07070c;">
+      <div class="flex items-center justify-between mb-5">
+        <div class="flex items-center gap-4">
+          <div class="flex border-b border-white/10">
+            <button class="right-tab active" id="rtab-code" onclick="switchRightTab('code')">Code Editor</button>
+            <button class="right-tab" id="rtab-preview" onclick="switchRightTab('preview')">Live Preview</button>
+          </div>
+        </div>
+        <button onclick="closeModal()" class="hidden md:flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all text-xl">&times;</button>
+      </div>
+      <div class="mb-4">
+        <label class="text-xs text-purple-400 font-bold uppercase tracking-widest block mb-2">AI Processing Logs</label>
+        <div id="ai-console" class="bg-black/60 border border-white/5 rounded-xl p-4 font-mono text-xs text-green-400 h-[120px] overflow-y-auto leading-relaxed">
+          <div class="text-gray-500">// Waiting for input...</div>
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col min-h-0 relative">
+        <!-- Code Editor Section -->
+        <div class="flex-1 flex flex-col h-full" id="code-editor-section">
+          <div id="single-output-wrapper" class="flex-1 flex flex-col h-full">
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-xs text-green-400 font-bold uppercase tracking-widest">Integrated Code Output</label>
+              <div class="flex gap-2">
+                <button class="btn-copy text-xs py-1.5 px-4" onclick="downloadResult('single')">Download</button>
+                <button class="btn-copy text-xs py-1.5 px-4" onclick="copyResult('single')">Copy Code</button>
+              </div>
+            </div>
+            <textarea id="output-code" class="mta flex-1 font-mono" style="border-color:rgba(74,222,128,0.2);height:auto;" placeholder="Generated code will appear here..."></textarea>
+          </div>
+          <div id="split-output-wrapper" class="hidden flex-col gap-4 h-full">
+            <div class="flex-1 flex flex-col min-h-[160px]">
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs text-green-400 font-bold uppercase tracking-widest">Integrated HTML</label>
+                <div class="flex gap-2">
+                  <button class="btn-copy text-xs py-1.5 px-3" onclick="downloadResult('html')">Download</button>
+                  <button class="btn-copy text-xs py-1.5 px-3" onclick="copyResult('html')">Copy HTML</button>
+                </div>
+              </div>
+              <textarea id="output-html-code" class="mta flex-1 font-mono" style="border-color:rgba(74,222,128,0.2);height:auto;"></textarea>
+            </div>
+            <div class="flex-1 flex flex-col min-h-[160px]">
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs text-green-400 font-bold uppercase tracking-widest">Integrated CSS</label>
+                <div class="flex gap-2">
+                  <button class="btn-copy text-xs py-1.5 px-3" onclick="downloadResult('css')">Download</button>
+                  <button class="btn-copy text-xs py-1.5 px-3" onclick="copyResult('css')">Copy CSS</button>
+                </div>
+              </div>
+              <textarea id="output-css-code" class="mta flex-1 font-mono" style="border-color:rgba(74,222,128,0.2);height:auto;"></textarea>
+            </div>
+          </div>
+        </div>
+        <!-- Live Preview Section -->
+        <div class="absolute inset-0 hidden flex-col h-full" id="live-preview-section">
+          <label class="text-xs text-blue-400 font-bold uppercase tracking-widest mb-2">Interactive Sandbox View</label>
+          <iframe id="preview-iframe" class="w-full flex-1 bg-[#050510] border border-white/10 rounded-xl" style="height:100%;min-height:400px;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="backgrounds.js"></script>
+
+<script>
+
+// BG_DATA is loaded from the external backgrounds.js file
+var activeId = null;
+var selectedFw = 'html';
+var cardObserver = null;
+var searchQuery = '';
+var activeCat = 'All';
+
+function debounce(fn, delay) {
+  var timer = null;
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(fn, delay);
+  };
+}
+
+function showToast(message, type) {
+  var toast = document.getElementById('toast-notification');
+  if (!toast) return;
+  var icon = type === 'success' ? '\u2705 ' : type === 'warning' ? '\u26a0\ufe0f ' : '\u2139\ufe0f ';
+  toast.textContent = icon + message;
+  toast.classList.add('show');
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(function() {
+    toast.classList.remove('show');
+  }, 2500);
+}
+
+function escH(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function renderCards(cat) {
+  if (cardObserver) cardObserver.disconnect();
+
+  var grid = document.getElementById('cards-grid');
+  grid.innerHTML = '';
+  activeCat = cat;
+  var list = cat === 'All' ? BG_DATA : BG_DATA.filter(function(b) { return b.category === cat; });
+  if (searchQuery) {
+    var q = searchQuery.toLowerCase();
+    list = list.filter(function(b) {
+      return b.name.toLowerCase().indexOf(q) !== -1 || b.description.toLowerCase().indexOf(q) !== -1 || String(b.id).indexOf(q) !== -1;
+    });
+  }
+  
+  list.forEach(function(bg) {
+    var card = document.createElement('div');
+    card.className = 'bg-card';
+    card.dataset.bgId = bg.id;
+    card.dataset.loaded = 'false';
+    
+    var html = '';
+    html += '<div class="bg-preview" id="p' + bg.id + '" data-active="false">';
+    html += '<span class="preview-label">' + bg.id + '. ' + bg.name + '</span>';
+    html += '<div class="preview-loader"><div class="spinner"></div></div>';
+    html += '</div>';
+    
+    html += '<div class="p-5 flex flex-col gap-3" style="flex:1;">';
+    html += '<div class="flex items-start justify-between gap-3">';
+    html += '<div style="flex:1;min-width:0;">';
+    html += '<h3 class="outfit text-base font-bold text-white truncate">' + bg.name + '</h3>';
+    html += '<p class="text-gray-500 text-xs mt-1.5 leading-relaxed" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">' + bg.description + '</p>';
+    html += '</div>';
+    html += '<span class="tag" style="flex-shrink:0;">' + bg.category + '</span>';
+    html += '</div>';
+    
+    html += '<div class="flex gap-2.5 mt-auto pt-1">';
+    html += '<button class="btn-integrate" style="flex:1;" onclick="openModal(' + bg.id + ')">&#9889; Integrate</button>';
+    html += '<button class="btn-copy" onclick="toggleCode(' + bg.id + ', this)">Code</button>';
+    html += '</div>';
+    
+    html += '<div id="code' + bg.id + '" style="display:none;" class="mt-2">';
+    html += '<div class="code-block">' + escH(bg.code) + '</div>';
+    html += '<button class="btn-copy" style="width:100%;margin-top:8px;" onclick="copyCode(' + bg.id + ')">Copy Raw Code</button>';
+    html += '</div>';
+    html += '</div>';
+    
+    card.innerHTML = html;
+    grid.appendChild(card);
+  });
+
+  setupObserver();
+}
+
+function setupObserver() {
+  var observerOptions = {
+    root: null,
+    rootMargin: '120px',
+    threshold: 0.01
+  };
+
+  cardObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var card = entry.target;
+      var bgId = parseInt(card.dataset.bgId);
+      var previewContainer = document.getElementById('p' + bgId);
+      
+      if (entry.isIntersecting) {
+        if (card.dataset.loaded !== 'true') {
+          var bg = BG_DATA.find(function(b) { return b.id === bgId; });
+          if (bg) {
+            card.dataset.loaded = 'true';
+            previewContainer.dataset.active = 'true';
+            injectPreview(bg);
+          }
+        }
+      } else {
+        if (card.dataset.loaded === 'true') {
+          previewContainer.dataset.active = 'false';
+          var bg = BG_DATA.find(function(b) { return b.id === bgId; });
+          previewContainer.innerHTML = '<span class="preview-label">' + bg.id + '. ' + bg.name + '</span>' +
+            '<div class="preview-loader"><div class="spinner"></div></div>';
+          card.dataset.loaded = 'false';
+        }
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.bg-card').forEach(function(card) {
+    cardObserver.observe(card);
+  });
+}
+
+function injectPreview(bg) {
+  var container = document.getElementById('p' + bg.id);
+  if (!container) return;
+
+  var fullCode = bg.previewCode || bg.code;
+  if (bg.scriptReplace) {
+    var newId = bg.scriptReplace.replace + bg.id;
+    fullCode = fullCode.split(bg.scriptReplace.find).join(newId);
+  }
+
+  var tmp = document.createElement('div');
+  tmp.innerHTML = fullCode;
+
+  // Scoped styles
+  var styleEls = tmp.querySelectorAll('style');
+  for (var i = 0; i < styleEls.length; i++) {
+    var scoped = document.createElement('style');
+    scoped.textContent = styleEls[i].textContent.replace(
+      /([^{}\n]+)\s*\{/g,
+      function(m, sel) {
+        if (sel.trim().charAt(0) === '@') return m;
+        return '#p' + bg.id + ' ' + sel.trim() + ' {';
+      }
+    );
+    document.head.appendChild(scoped);
+    styleEls[i].parentNode.removeChild(styleEls[i]);
+  }
+
+  // Scripts
+  var scriptEls = tmp.querySelectorAll('script');
+  var codes = [];
+  for (var j = 0; j < scriptEls.length; j++) {
+    codes.push(scriptEls[j].textContent);
+    scriptEls[j].parentNode.removeChild(scriptEls[j]);
+  }
+
+  var wrapper = document.createElement('div');
+  wrapper.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;z-index:2;';
+  wrapper.innerHTML = tmp.innerHTML;
+  
+  var loader = container.querySelector('.preview-loader');
+  if (loader) {
+    loader.style.opacity = '0';
+    setTimeout(function() { if(loader.parentNode) loader.parentNode.removeChild(loader); }, 400);
+  }
+  
+  container.appendChild(wrapper);
+
+  var canvases = wrapper.querySelectorAll('canvas');
+  for (var ci = 0; ci < canvases.length; ci++) {
+    canvases[ci].width = container.offsetWidth || 320;
+    canvases[ci].height = container.offsetHeight || 180;
+  }
+
+  setTimeout(function() {
+    for (var k = 0; k < codes.length; k++) {
+      try {
+        var wrappedCode = "(function(requestAnimationFrame, setInterval, setTimeout){\n" +
+          codes[k] + "\n" +
+          "})(function(cb){\n" +
+          "  var container = document.getElementById('p" + bg.id + "');\n" +
+          "  if (container && document.body.contains(container) && container.dataset.active === 'true') {\n" +
+          "    return window.requestAnimationFrame(cb);\n" +
+          "  }\n" +
+          "}, function(cb, delay){\n" +
+          "  var container = document.getElementById('p" + bg.id + "');\n" +
+          "  var id = window.setInterval(function() {\n" +
+          "    if (container && document.body.contains(container) && container.dataset.active === 'true') {\n" +
+          "      cb();\n" +
+          "    } else {\n" +
+          "      window.clearInterval(id);\n" +
+          "    }\n" +
+          "  }, delay);\n" +
+          "  return id;\n" +
+          "}, function(cb, delay){\n" +
+          "  var container = document.getElementById('p" + bg.id + "');\n" +
+          "  var id = window.setTimeout(function() {\n" +
+          "    if (container && document.body.contains(container) && container.dataset.active === 'true') {\n" +
+          "      cb();\n" +
+          "    }\n" +
+          "  }, delay);\n" +
+          "  return id;\n" +
+          "});";
+        new Function(wrappedCode)();
+      }
+      catch(e) { console.warn('Preview bg' + bg.id + ':', e.message); }
+    }
+  }, 20);
+}
+
+function toggleCode(id, btn) {
+  var el = document.getElementById('code' + id);
+  var vis = el.style.display !== 'none';
+  el.style.display = vis ? 'none' : 'block';
+  btn.textContent = vis ? 'Code' : 'Hide';
+}
+
+function copyCode(id) {
+  var bg = BG_DATA.find(function(b) { return b.id === id; });
+  navigator.clipboard.writeText(bg.code).then(function() { showToast('Code copied to clipboard!', 'success'); });
+}
+
+function openModal(id) {
+  activeId = id;
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('input-code').value = '';
+  document.getElementById('input-html-code').value = '';
+  document.getElementById('input-css-code').value = '';
+  document.getElementById('output-code').value = '';
+  document.getElementById('output-html-code').value = '';
+  document.getElementById('output-css-code').value = '';
+  document.getElementById('target-selector').value = '';
+  document.getElementById('target-selector-wrapper').style.display = 'block';
+  document.getElementById('ai-console').innerHTML = '<div class="text-gray-500">// Ready to integrate. Select a framework & click "Smart AI Integrate"</div>';
+  
+  var bg = BG_DATA.find(function(b) { return b.id === id; });
+  document.getElementById('modal-bg-name').innerHTML =
+    'Target Background: <strong style="color:#a78bfa;">' + bg.name + '</strong> &mdash; Select your framework & paste your application code.';
+  
+  document.getElementById('run-btn').textContent = 'Smart AI Integrate';
+  document.getElementById('run-btn').disabled = false;
+  switchRightTab('code');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+
+function convertToReact(bg) {
+  var code = bg.code;
+  var cssStr = '';
+  var styleMatch = code.match(/<style>([\s\S]*?)<\/style>/);
+  if (styleMatch) cssStr = styleMatch[1];
+  
+  var scriptMatch = code.match(/<script>([\s\S]*?)<\/script>/);
+  var scriptStr = scriptMatch ? scriptMatch[1] : '';
+  
+  var htmlStr = code.replace(/<style>[\s\S]*?<\/style>/g, '').replace(/<script>[\s\S]*?<\/script>/g, '').trim();
+  
+  var effectBody = scriptStr;
+  if (bg.scriptReplace) {
+    var canvasId = bg.scriptReplace.find;
+    effectBody = effectBody.split("document.getElementById('" + canvasId + "')").join("canvasRef.current");
+    effectBody = effectBody.split('document.getElementById("' + canvasId + '")').join("canvasRef.current");
+  }
+  
+  var output = '';
+  output += "import React, { useEffect, useRef } from 'react';\n\n";
+  output += "export default function AnimatedBackground() {\n";
+  if (scriptStr) {
+    output += "  const canvasRef = useRef(null);\n\n";
+    output += "  useEffect(() => {\n";
+    output += "    if (typeof window === 'undefined') return;\n";
+    
+    var lines = effectBody.trim().split('\n');
+    var indentedBody = lines.map(line => '    ' + line).join('\n');
+    output += indentedBody + "\n";
+    output += "  }, []);\n\n";
+  }
+  
+  output += "  return (\n";
+  output += "    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, pointerEvents: 'none', overflow: 'hidden' }}>\n";
+  if (cssStr) {
+    output += "      <" + "style>{`\n";
+    output += "        " + cssStr.split('\n').join('\n        ') + "\n";
+    output += "      `}</" + "style>\n";
+  }
+  
+  var jsxHtml = htmlStr
+    .replace(/class=/g, 'className=')
+    .replace(/style="([^"]*)"/g, function(m, style) {
+       var reactStyles = style.split(';').filter(Boolean).map(function(s) {
+         var parts = s.split(':');
+         var key = parts[0].trim().replace(/-([a-z])/g, function(g) { return g[1].toUpperCase(); });
+         var val = parts[1].trim();
+         if (/^\d+(px)?$/.test(val)) val = parseInt(val);
+         else val = "'" + val + "'";
+         return key + ": " + val;
+       }).join(', ');
+       return "style={{" + reactStyles + "}}";
+    });
+  
+  if (bg.scriptReplace) {
+    jsxHtml = jsxHtml.replace(/id="[^"]*"/, 'ref={canvasRef}');
+  }
+  
+  output += "      " + jsxHtml.split('\n').join('\n      ') + "\n";
+  output += "    </div>\n";
+  output += "  );\n";
+  output += "}\n";
+  
+  return output;
+}
+
+function convertToNext(bg) {
+  return '"use client";\n\n' + convertToReact(bg);
+}
+
+function convertToVue(bg) {
+  var code = bg.code;
+  var cssStr = '';
+  var styleMatch = code.match(/<style>([\s\S]*?)<\/style>/);
+  if (styleMatch) cssStr = styleMatch[1];
+  
+  var scriptMatch = code.match(/<script>([\s\S]*?)<\/script>/);
+  var scriptStr = scriptMatch ? scriptMatch[1] : '';
+  
+  var htmlStr = code.replace(/<style>[\s\S]*?<\/style>/g, '').replace(/<script>[\s\S]*?<\/script>/g, '').trim();
+  
+  var effectBody = scriptStr;
+  if (bg.scriptReplace) {
+    var canvasId = bg.scriptReplace.find;
+    effectBody = effectBody.split("document.getElementById('" + canvasId + "')").join("canvasRef.value");
+    effectBody = effectBody.split('document.getElementById("' + canvasId + '")').join("canvasRef.value");
+  }
+  
+  var output = '';
+  output += "<" + "template>\n";
+  output += "  <" + "div class=\"bg-container\">\n";
+  if (bg.scriptReplace) {
+    output += "    " + htmlStr.replace(/id="[^"]*"/, 'ref="canvasRef"').split('\n').join('\n    ') + "\n";
+  } else {
+    output += "    " + htmlStr.split('\n').join('\n    ') + "\n";
+  }
+  output += "  </" + "div>\n";
+  output += "</" + "template>\n\n";
+  
+  output += "<" + "script setup>\n";
+  output += "import { ref, onMounted } from 'vue';\n\n";
+  if (scriptStr) {
+    output += "const canvasRef = ref(null);\n\n";
+    output += "onMounted(() => {\n";
+    var lines = effectBody.trim().split('\n');
+    var indentedBody = lines.map(line => '  ' + line).join('\n');
+    output += indentedBody + "\n";
+    output += "});\n";
+  }
+  output += "</" + "script>\n\n";
+  
+  output += "<" + "style scoped>\n";
+  output += ".bg-container {\n";
+  output += "  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n  pointer-events: none;\n  overflow: hidden;\n";
+  output += "}\n";
+  if (cssStr) {
+    output += cssStr.trim() + "\n";
+  }
+  output += "</" + "style>\n";
+  
+  return output;
+}
+
+function convertToSvelte(bg) {
+  var code = bg.code;
+  var cssStr = '';
+  var styleMatch = code.match(/<style>([\s\S]*?)<\/style>/);
+  if (styleMatch) cssStr = styleMatch[1];
+  
+  var scriptMatch = code.match(/<script>([\s\S]*?)<\/script>/);
+  var scriptStr = scriptMatch ? scriptMatch[1] : '';
+  
+  var htmlStr = code.replace(/<style>[\s\S]*?<\/style>/g, '').replace(/<script>[\s\S]*?<\/script>/g, '').trim();
+  
+  var effectBody = scriptStr;
+  if (bg.scriptReplace) {
+    var canvasId = bg.scriptReplace.find;
+    effectBody = effectBody.split("document.getElementById('" + canvasId + "')").join("canvasEl");
+    effectBody = effectBody.split('document.getElementById("' + canvasId + '")').join("canvasEl");
+  }
+  
+  var output = '';
+  output += "<" + "script>\n";
+  output += "  import { onMount } from 'svelte';\n\n";
+  if (scriptStr) {
+    output += "  let canvasEl;\n\n";
+    output += "  onMount(() => {\n";
+    var lines = effectBody.trim().split('\n');
+    var indentedBody = lines.map(line => '    ' + line).join('\n');
+    output += indentedBody + "\n";
+    output += "  });\n";
+  }
+  output += "</" + "script>\n\n";
+  
+  output += "<" + "div class=\"bg-container\">\n";
+  if (bg.scriptReplace) {
+    output += "  " + htmlStr.replace(/id="[^"]*"/, 'bind:this={canvasEl}').split('\n').join('\n  ') + "\n";
+  } else {
+    output += "  " + htmlStr.split('\n').join('\n  ') + "\n";
+  }
+  output += "</" + "div>\n\n";
+  
+  output += "<" + "style>\n";
+  output += "  .bg-container {\n";
+  output += "    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: -1;\n    pointer-events: none;\n    overflow: hidden;\n  }\n";
+  if (cssStr) {
+    output += "  " + cssStr.trim().split('\n').join('\n  ') + "\n";
+  }
+  output += "</" + "style>\n";
+  
+  return output;
+}
+
+function convertToTailwind(bg) {
+  var code = bg.code;
+  var cleanHtml = code.replace(/<style>[\s\S]*?<\/style>/g, '').replace(/<script>[\s\S]*?<\/script>/g, '').trim();
+  var containerHtml = cleanHtml.replace(/style="[^"]*"/, 'class="fixed inset-0 -z-10 pointer-events-none overflow-hidden"');
+  
+  var styleMatch = code.match(/<style>([\s\S]*?)<\/style>/);
+  var cssStr = styleMatch ? styleMatch[1] : '';
+  
+  var scriptMatch = code.match(/<script>([\s\S]*?)<\/script>/);
+  var scriptStr = scriptMatch ? scriptMatch[1] : '';
+
+  var output = "<!-- Place in your Tailwind HTML -->\n" + containerHtml + "\n\n";
+  if (cssStr) {
+    output += "<!-- Custom Keyframes Style (Tailwind config or raw style block) -->\n<" + "style>\n" + cssStr + "</" + "style>\n\n";
+  }
+  if (scriptStr) {
+    output += "<!-- Canvas Logic -->\n<" + "script>\n" + scriptStr + "</" + "script>\n";
+  }
+  return output;
+}
+
+function stripExistingLumina(code, selector) {
+  var result = code;
+  
+  // 1. Unwrap relative container if snippet wrapper is detected at root
+  var relativeWrapperRegex = /^\s*<div\b[^>]*style="[^"]*position:\s*relative;[^"]*overflow:\s*hidden;[^"]*"[^>]*>\s*<!--\s*Lumina Section Background\s*-->\s*<div\b[^>]*>[\s\S]*?<\/div>\s*([\s\S]*?)\s*<\/div>\s*$/i;
+  var relativeMatch = result.match(relativeWrapperRegex);
+  if (relativeMatch) {
+    result = relativeMatch[1];
+  }
+  
+  // 2. Parse using DOMParser
+  var parser = new DOMParser();
+  var doc = parser.parseFromString(result, 'text/html');
+  var isFullDoc = /<html|<head|<body/i.test(result);
+  
+  // Helper to detect if an element acts as a background canvas or wrapper
+  function isBackgroundElement(el) {
+    var tag = el.tagName.toLowerCase();
+    if (tag !== 'canvas' && tag !== 'div') return false;
+    
+    var id = (el.id || '').toLowerCase();
+    var cls = (el.className || '').toLowerCase();
+    var style = (el.getAttribute('style') || '').toLowerCase();
+    
+    var hasBgName = /bg|background|particles|ambient|simulation|canvas-bg|hero-bg/i.test(id) ||
+                    /bg|background|particles|ambient|simulation|canvas-bg|hero-bg/i.test(cls);
+                    
+    var isAbsoluteOrFixed = /position\s*:\s*(fixed|absolute)/i.test(style);
+    var hasNegativeZIndex = /z-index\s*:\s*-\d+/i.test(style);
+    var hasPointerEventsNone = /pointer-events\s*:\s*none/i.test(style);
+    
+    var hasTailwindAbsoluteOrFixed = /\b(absolute|fixed)\b/.test(cls);
+    var hasTailwindNegativeZIndex = /\b(-z-\d+|-z-50)\b/.test(cls);
+    var hasTailwindPointerEventsNone = /\b(pointer-events-none)\b/.test(cls);
+    
+    if (tag === 'canvas') {
+      if (hasBgName) return true;
+      if ((isAbsoluteOrFixed || hasTailwindAbsoluteOrFixed) && (hasNegativeZIndex || hasTailwindNegativeZIndex)) return true;
+      if ((isAbsoluteOrFixed || hasTailwindAbsoluteOrFixed) && (hasPointerEventsNone || hasTailwindPointerEventsNone)) return true;
+    }
+    
+    if (tag === 'div') {
+      var hasCanvasChild = el.querySelector('canvas') !== null;
+      if (hasCanvasChild) {
+        if ((isAbsoluteOrFixed || hasTailwindAbsoluteOrFixed) && (hasNegativeZIndex || hasTailwindNegativeZIndex)) return true;
+        if ((isAbsoluteOrFixed || hasTailwindAbsoluteOrFixed) && (hasPointerEventsNone || hasTailwindPointerEventsNone)) return true;
+      }
+    }
+    
+    return false;
+  }
+  
+  // 3. Find targeted cleanup container
+  var targetEl = null;
+  if (selector) {
+    targetEl = doc.querySelector(selector);
+  }
+  if (!targetEl && !isFullDoc) {
+    var visualElements = Array.from(doc.body.children).filter(function(el) {
+      var tag = el.tagName.toLowerCase();
+      return tag !== 'style' && tag !== 'script';
+    });
+    if (visualElements.length === 1) {
+      targetEl = visualElements[0];
+    }
+  }
+  
+  var cleanTarget = targetEl || doc.body;
+  
+  // Helper to remove Start/End comment-scoped elements at the direct child level of parent
+  function cleanComments(parent) {
+    if (!parent) return;
+    var childNodes = Array.from(parent.childNodes);
+    var i = 0;
+    while (i < childNodes.length) {
+      var node = childNodes[i];
+      if (node.nodeType === 8) { // Comment node
+        var text = node.textContent.trim();
+        if (/^Lumina.*Start$/i.test(text)) {
+          var nodesToRemove = [];
+          var foundEnd = false;
+          var j = i + 1;
+          while (j < childNodes.length) {
+            var next = childNodes[j];
+            if (next.nodeType === 8) {
+              var nextText = next.textContent.trim();
+              if (/^Lumina.*End$/i.test(nextText)) {
+                nodesToRemove.push(next);
+                foundEnd = true;
+                break;
+              }
+            }
+            nodesToRemove.push(next);
+            j++;
+          }
+          
+          if (foundEnd) {
+            nodesToRemove.forEach(function(n) {
+              if (n.parentNode) {
+                n.parentNode.removeChild(n);
+              }
+            });
+            node.parentNode.removeChild(node);
+            childNodes = Array.from(parent.childNodes);
+            i = 0; // restart
+            continue;
+          }
+        }
+      }
+      i++;
+    }
+  }
+  
+  // Helper to remove legacy comment-scoped elements at the direct child level of parent
+  function cleanLegacyComments(parent) {
+    if (!parent) return;
+    var childNodes = Array.from(parent.childNodes);
+    var i = 0;
+    while (i < childNodes.length) {
+      var node = childNodes[i];
+      if (node.nodeType === 8) {
+        var text = node.textContent.trim();
+        if (text.indexOf('Lumina') !== -1 && !/Start$|End$/i.test(text)) {
+          var next = node.nextSibling;
+          while (next && next.nodeType === 3) { // skip text nodes
+            next = next.nextSibling;
+          }
+          if (next && (next.nodeType === 1 || next.nodeType === 8)) {
+            if (next.parentNode) {
+              next.parentNode.removeChild(next);
+            }
+          }
+          node.parentNode.removeChild(node);
+          childNodes = Array.from(parent.childNodes);
+          i = 0; // restart
+          continue;
+        }
+      }
+      i++;
+    }
+  }
+
+  if (cleanTarget) {
+    // A. Remove pre-existing custom backgrounds strictly from direct children of the target
+    var bgElementsToRemove = [];
+    var allDirectChildren = Array.from(cleanTarget.children);
+    allDirectChildren.forEach(function(el) {
+      if (isBackgroundElement(el)) {
+        bgElementsToRemove.push(el);
+      }
+    });
+    bgElementsToRemove.forEach(function(el) {
+      if (el.parentNode) {
+        el.parentNode.removeChild(el);
+      }
+    });
+    
+    // B. Strip Start/End markers strictly from direct children of the target
+    if (cleanTarget === doc.body && doc.head) {
+      cleanComments(doc.head);
+      cleanLegacyComments(doc.head);
+    }
+    cleanComments(cleanTarget);
+    cleanLegacyComments(cleanTarget);
+  }
+  
+  // 6. Serialize back to HTML
+  if (isFullDoc) {
+    var doctypeMatch = result.match(/^\s*<!DOCTYPE[^>]*>/i);
+    var doctype = doctypeMatch ? doctypeMatch[0] + '\n' : '';
+    return doctype + doc.documentElement.outerHTML;
+  } else {
+    return doc.body.innerHTML;
+  }
+}
+
+function stripExistingCss(css) {
+  var index = css.indexOf('/* Lumina Background Keyframes & Styles */');
+  if (index !== -1) {
+    return css.substring(0, index).trim();
+  }
+  return css;
+}
+
+function integrateHtml(input, bg, selector) {
+  var cleanInput = stripExistingLumina(input, selector);
+  
+  var tmp = document.createElement('div');
+  tmp.innerHTML = bg.code;
+  
+  var styleStr = '';
+  var ss = tmp.querySelectorAll('style');
+  for (var i = 0; i < ss.length; i++) { styleStr += ss[i].outerHTML + '\n'; ss[i].parentNode.removeChild(ss[i]); }
+  
+  var scriptStr = '';
+  var sc = tmp.querySelectorAll('script');
+  for (var j = 0; j < sc.length; j++) { scriptStr += sc[j].outerHTML + '\n'; sc[j].parentNode.removeChild(sc[j]); }
+  
+  var bgHtml = tmp.innerHTML.trim();
+  
+  var parser = new DOMParser();
+  var doc = parser.parseFromString(cleanInput, 'text/html');
+  var isFullDoc = /<html|<head|<body/i.test(input);
+  
+  var targetEl = null;
+  if (selector) {
+    targetEl = doc.querySelector(selector);
+  }
+  
+  if (!targetEl && !isFullDoc) {
+    var visualElements = Array.from(doc.body.children).filter(function(el) {
+      var tag = el.tagName.toLowerCase();
+      return tag !== 'style' && tag !== 'script';
+    });
+    if (visualElements.length === 1) {
+      targetEl = visualElements[0];
+    }
+  }
+  
+  if (targetEl) {
+    var inlineStyle = targetEl.getAttribute('style') || '';
+    var cls = targetEl.className || '';
+    var hasPositionClass = /\b(relative|absolute|fixed|sticky)\b/.test(cls);
+    var hasPositionStyle = /position\s*:\s*(relative|absolute|fixed|sticky)/i.test(inlineStyle);
+    var hasOverflowClass = /\b(overflow-hidden)\b/.test(cls);
+    var hasOverflowStyle = /overflow\s*:\s*(hidden|scroll|auto)/i.test(inlineStyle);
+    
+    if (!hasPositionClass && !hasPositionStyle) {
+      targetEl.style.position = 'relative';
+    }
+    if (!hasOverflowClass && !hasOverflowStyle) {
+      targetEl.style.overflow = 'hidden';
+    }
+    targetEl.style.isolation = 'isolate';
+    
+    var bgWrapper = document.createElement('div');
+    bgWrapper.innerHTML = '<!-- Lumina Background Start -->\n' +
+      '<div style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;overflow:hidden;">\n  ' + bgHtml + '\n</div>\n' +
+      '<!-- Lumina Background End -->';
+    var first = targetEl.firstChild;
+    while (bgWrapper.firstChild) {
+      targetEl.insertBefore(bgWrapper.firstChild, first);
+    }
+  } else {
+    var body = doc.body;
+    var bgWrapper = document.createElement('div');
+    
+    if (isFullDoc) {
+      body.style.isolation = 'isolate';
+      bgWrapper.innerHTML = '<!-- Lumina Background Start -->\n' +
+        '<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;overflow:hidden;">\n  ' + bgHtml + '\n</div>\n' +
+        '<!-- Lumina Background End -->';
+      var first = body.firstChild;
+      while (bgWrapper.firstChild) {
+        body.insertBefore(bgWrapper.firstChild, first);
+      }
+    } else {
+      var container = document.createElement('div');
+      container.style.position = 'relative';
+      container.style.overflow = 'hidden';
+      container.style.isolation = 'isolate';
+      container.innerHTML = '<!-- Lumina Background Start -->\n' +
+        '<div style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;overflow:hidden;">\n  ' + bgHtml + '\n</div>\n' +
+        '<!-- Lumina Background End -->';
+      
+      while (body.firstChild) {
+        container.appendChild(body.firstChild);
+      }
+      body.appendChild(container);
+    }
+  }
+  
+  if (styleStr) {
+    var head = doc.head;
+    var styleDiv = document.createElement('div');
+    styleDiv.innerHTML = '<!-- Lumina Styles Start -->\n' + styleStr + '<!-- Lumina Styles End -->';
+    if (head) {
+      while (styleDiv.firstChild) {
+        head.appendChild(styleDiv.firstChild);
+      }
+    } else {
+      var first = doc.body.firstChild;
+      while (styleDiv.firstChild) {
+        doc.body.insertBefore(styleDiv.firstChild, first);
+      }
+    }
+  }
+  
+  if (scriptStr) {
+    var scriptDiv = document.createElement('div');
+    scriptDiv.innerHTML = '<!-- Lumina Scripts Start -->\n' + scriptStr + '<!-- Lumina Scripts End -->';
+    while (scriptDiv.firstChild) {
+      doc.body.appendChild(scriptDiv.firstChild);
+    }
+  }
+  
+  if (isFullDoc) {
+    var doctypeMatch = input.match(/^\s*<!DOCTYPE[^>]*>/i);
+    var doctype = doctypeMatch ? doctypeMatch[0] + '\n' : '';
+    return doctype + doc.documentElement.outerHTML;
+  } else {
+    return doc.body.innerHTML;
+  }
+}
+
+function integrateSplit(htmlInput, cssInput, bg, selector) {
+  var cleanHtml = stripExistingLumina(htmlInput, selector);
+  
+  var tmp = document.createElement('div');
+  tmp.innerHTML = bg.code;
+  
+  var bgCss = '';
+  var ss = tmp.querySelectorAll('style');
+  for (var i = 0; i < ss.length; i++) {
+    bgCss += ss[i].textContent.trim() + '\n\n';
+    ss[i].parentNode.removeChild(ss[i]);
+  }
+  
+  var scriptStr = '';
+  var sc = tmp.querySelectorAll('script');
+  for (var j = 0; j < sc.length; j++) {
+    scriptStr += sc[j].outerHTML + '\n';
+    sc[j].parentNode.removeChild(sc[j]);
+  }
+  
+  var bgHtml = tmp.innerHTML.trim();
+  
+  var parser = new DOMParser();
+  var doc = parser.parseFromString(cleanHtml, 'text/html');
+  var isFullDoc = /<html|<head|<body/i.test(htmlInput);
+  
+  var targetEl = null;
+  if (selector) {
+    targetEl = doc.querySelector(selector);
+  }
+  
+  if (!targetEl && !isFullDoc) {
+    var visualElements = Array.from(doc.body.children).filter(function(el) {
+      var tag = el.tagName.toLowerCase();
+      return tag !== 'style' && tag !== 'script';
+    });
+    if (visualElements.length === 1) {
+      targetEl = visualElements[0];
+    }
+  }
+  
+  if (targetEl) {
+    var inlineStyle = targetEl.getAttribute('style') || '';
+    var cls = targetEl.className || '';
+    var hasPositionClass = /\b(relative|absolute|fixed|sticky)\b/.test(cls);
+    var hasPositionStyle = /position\s*:\s*(relative|absolute|fixed|sticky)/i.test(inlineStyle);
+    var hasOverflowClass = /\b(overflow-hidden)\b/.test(cls);
+    var hasOverflowStyle = /overflow\s*:\s*(hidden|scroll|auto)/i.test(inlineStyle);
+    
+    if (!hasPositionClass && !hasPositionStyle) {
+      targetEl.style.position = 'relative';
+    }
+    if (!hasOverflowClass && !hasOverflowStyle) {
+      targetEl.style.overflow = 'hidden';
+    }
+    targetEl.style.isolation = 'isolate';
+    
+    var bgWrapper = document.createElement('div');
+    bgWrapper.innerHTML = '<!-- Lumina Background Start -->\n' +
+      '<div style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;overflow:hidden;">\n  ' + bgHtml + '\n</div>\n' +
+      '<!-- Lumina Background End -->';
+    var first = targetEl.firstChild;
+    while (bgWrapper.firstChild) {
+      targetEl.insertBefore(bgWrapper.firstChild, first);
+    }
+  } else {
+    var body = doc.body;
+    var bgWrapper = document.createElement('div');
+    
+    if (isFullDoc) {
+      body.style.isolation = 'isolate';
+      bgWrapper.innerHTML = '<!-- Lumina Background Start -->\n' +
+        '<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;overflow:hidden;">\n  ' + bgHtml + '\n</div>\n' +
+        '<!-- Lumina Background End -->';
+      var first = body.firstChild;
+      while (bgWrapper.firstChild) {
+        body.insertBefore(bgWrapper.firstChild, first);
+      }
+    } else {
+      var container = document.createElement('div');
+      container.style.position = 'relative';
+      container.style.overflow = 'hidden';
+      container.style.isolation = 'isolate';
+      container.innerHTML = '<!-- Lumina Background Start -->\n' +
+        '<div style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;overflow:hidden;">\n  ' + bgHtml + '\n</div>\n' +
+        '<!-- Lumina Background End -->';
+      
+      while (body.firstChild) {
+        container.appendChild(body.firstChild);
+      }
+      body.appendChild(container);
+    }
+  }
+  
+  if (scriptStr) {
+    var scriptDiv = document.createElement('div');
+    scriptDiv.innerHTML = '<!-- Lumina Scripts Start -->\n' + scriptStr + '<!-- Lumina Scripts End -->';
+    while (scriptDiv.firstChild) {
+      doc.body.appendChild(scriptDiv.firstChild);
+    }
+  }
+  
+  var finalHtml = '';
+  if (isFullDoc) {
+    var doctypeMatch = htmlInput.match(/^\s*<!DOCTYPE[^>]*>/i);
+    var doctype = doctypeMatch ? doctypeMatch[0] + '\n' : '';
+    finalHtml = doctype + doc.documentElement.outerHTML;
+  } else {
+    finalHtml = doc.body.innerHTML;
+  }
+  
+  var finalCss = stripExistingCss(cssInput);
+  if (bgCss) {
+    finalCss = finalCss + '\n\n/* Lumina Background Keyframes & Styles */\n' + bgCss.trim();
+  }
+  
+  return {
+    html: finalHtml,
+    css: finalCss
+  };
+}
+
+function runIntegration() {
+  var bg = BG_DATA.find(function(b) { return b.id === activeId; });
+  var isReactBg = bg.code && (bg.code.trim().indexOf('/* --- REACT COMPONENT CODE') === 0 || bg.code.includes('import {') || bg.code.includes('import React'));
+  var integrationBg = bg;
+  if (isReactBg && selectedFw !== 'react' && selectedFw !== 'next') {
+    integrationBg = Object.assign({}, bg, { code: bg.previewCode });
+  }
+  var btn = document.getElementById('run-btn');
+  var consoleEl = document.getElementById('ai-console');
+  
+  var input = '';
+  var inputHtml = '';
+  var inputCss = '';
+  
+  if (selectedFw === 'split') {
+    inputHtml = document.getElementById('input-html-code').value.trim();
+    inputCss = document.getElementById('input-css-code').value.trim();
+    
+    if (!inputHtml) {
+      inputHtml = '<' + '!DOCTYPE html>\n<' + 'html lang="en">\n<' + 'head>\n  <' + 'meta charset="UTF-8">\n  <' + 'link rel="stylesheet" href="style.css">\n  <' + 'title>Lumina Split Background</' + 'title>\n</' + 'head>\n<' + 'body>\n  <' + 'div style="padding: 40px; text-align: center; color: white;">\n    <' + 'h1>Lumina Split Integration</' + 'h1>\n  </' + 'div>\n</' + 'body>\n</' + 'html>';
+      document.getElementById('input-html-code').value = inputHtml;
+    }
+    if (!inputCss) {
+      inputCss = '/* Your existing styles */\nbody {\n  margin: 0;\n  background: #050510;\n}';
+      document.getElementById('input-css-code').value = inputCss;
+    }
+  } else {
+    input = document.getElementById('input-code').value.trim();
+    if (!input) {
+      if (selectedFw === 'html') {
+        input = '<' + '!DOCTYPE html>\n<' + 'html lang="en">\n<' + 'head>\n  <' + 'meta charset="UTF-8">\n  <' + 'title>Lumina Background</' + 'title>\n</' + 'head>\n<' + 'body>\n  <' + 'div style="padding: 40px; text-align: center; color: white;">\n    <' + 'h1>Lumina Integrated Background</' + 'h1>\n  </' + 'div>\n</' + 'body>\n</' + 'html>';
+      } else if (selectedFw === 'react' || selectedFw === 'next') {
+        input = 'export default function MyPage() {\n  return (\n    <' + 'div className="p-8 text-center text-white">\n      <' + 'h1>My React Page</' + 'h1>\n    </' + 'div>\n  );\n}';
+      } else if (selectedFw === 'vue') {
+        input = '<' + 'template>\n  <' + 'div class="p-8 text-center text-white">\n    <' + 'h1>My Vue Page</' + 'h1>\n  </' + 'div>\n</' + 'template>';
+      } else if (selectedFw === 'svelte') {
+        input = '<' + 'div class="p-8 text-center text-white">\n  <' + 'h1>My Svelte Page</' + 'h1>\n</' + 'div>';
+      } else {
+        input = '<' + 'div>\n  <' + 'h1>My Tailwind Page</' + 'h1>\n</' + 'div>';
+      }
+      document.getElementById('input-code').value = input;
+    }
+  }
+  
+  btn.disabled = true;
+  consoleEl.innerHTML = '';
+  
+  function addLog(text, delay, colorClass) {
+    return new Promise(function(resolve) {
+      setTimeout(function() {
+        var log = document.createElement('div');
+        log.className = colorClass || 'text-green-400';
+        log.textContent = text;
+        consoleEl.appendChild(log);
+        consoleEl.scrollTop = consoleEl.scrollHeight;
+        resolve();
+      }, delay);
+    });
+  }
+
+  addLog('🤖 Starting Antigravity AI Code Integrator...', 0)
+    .then(function() { return addLog('🔍 Reading target framework configuration: ' + selectedFw.toUpperCase(), 200, 'text-purple-400'); })
+    .then(function() { return addLog('💡 Parsing target code structural layers...', 200, 'text-gray-400'); })
+    .then(function() {
+      var result = '';
+      var logMessage = '';
+      var extraFwLog = '';
+      var warningLog = '';
+      
+      var selector = document.getElementById('target-selector') ? document.getElementById('target-selector').value.trim() : '';
+      
+      if (selectedFw === 'html') {
+        var hasBody = /<body\b[^>]*>/i.test(input);
+        
+        // Check for opaque background colors in styling/classes
+        var hasOpaqueBg = /background(-color)?\s*:\s*(?!transparent|none)\w+/i.test(input) || 
+                          /bg-(white|black|gray|slate|zinc|neutral|stone|red|orange|amber|yellow|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-\d+/i.test(input);
+        if (hasOpaqueBg) {
+          warningLog = '⚠️ Detected potential background colors/classes. Ensure body and container backgrounds are transparent if the animation is hidden.';
+        }
+        
+        result = integrateHtml(input, integrationBg, selector);
+        
+        var hasTarget = false;
+        if (selector) {
+          var parser = new DOMParser();
+          var testDoc = parser.parseFromString(stripExistingLumina(input, selector), 'text/html');
+          if (testDoc.querySelector(selector)) {
+            hasTarget = true;
+          }
+        }
+        
+        if (hasTarget) {
+          logMessage = '⚡ Target container selector "' + selector + '" matched. Integrated absolute background inside selected element.';
+        } else if (selector) {
+          logMessage = '⚠️ Target container "' + selector + '" not found in HTML. Defaulted to page-level/snippet wrapper.';
+        } else if (hasBody) {
+          logMessage = '⚡ Full document detected. Injected fixed background and styles inside page body.';
+        } else {
+          logMessage = '⚡ Snippet fragment detected. Wrapped output in relative container with scoped absolute background.';
+        }
+        
+        return addLog(logMessage, 200)
+          .then(function() {
+            if (warningLog) {
+              return addLog(warningLog, 150, 'text-yellow-500');
+            }
+          })
+          .then(function() { return addLog('📦 Formatting code syntax layers...', 150, 'text-gray-400'); })
+          .then(function() { return addLog('✅ Verification successful. Integration complete!', 150, 'text-green-400'); })
+          .then(function() {
+            document.getElementById('output-code').value = result;
+            btn.disabled = false;
+            switchRightTab('preview');
+            showToast('Integration complete! Preview is live.', 'success');
+          });
+      } else if (selectedFw === 'split') {
+        var hasBody = /<body\b[^>]*>/i.test(inputHtml);
+        
+        var hasOpaqueBg = /background(-color)?\s*:\s*(?!transparent|none)\w+/i.test(inputCss) || 
+                          /bg-(white|black|gray|slate|zinc|neutral|stone|red|orange|amber|yellow|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-\d+/i.test(inputHtml);
+        if (hasOpaqueBg) {
+          warningLog = '⚠️ Detected potential background colors. Ensure container backgrounds in HTML/CSS are transparent if the animation is hidden.';
+        }
+        
+        var splitRes = integrateSplit(inputHtml, inputCss, integrationBg, selector);
+        
+        var hasTarget = false;
+        if (selector) {
+          var parser = new DOMParser();
+          var testDoc = parser.parseFromString(stripExistingLumina(inputHtml, selector), 'text/html');
+          if (testDoc.querySelector(selector)) {
+            hasTarget = true;
+          }
+        }
+        
+        if (hasTarget) {
+          logMessage = '⚡ Target container selector "' + selector + '" matched. Integrated absolute background inside container.';
+        } else if (selector) {
+          logMessage = '⚠️ Target container "' + selector + '" not found in HTML. Defaulted to page-level/snippet wrapper.';
+        } else if (hasBody) {
+          logMessage = '⚡ Full HTML page detected. Merged fixed background elements and updated stylesheet.';
+        } else {
+          logMessage = '⚡ Snippet fragment detected. Wrapped snippet in relative container and updated stylesheet.';
+        }
+        
+        return addLog(logMessage, 200)
+          .then(function() {
+            if (warningLog) {
+              return addLog(warningLog, 150, 'text-yellow-500');
+            }
+          })
+          .then(function() { return addLog('🎨 Appended background animation rules directly to external CSS database.', 200, 'text-purple-400'); })
+          .then(function() { return addLog('📦 Formatting output files...', 150, 'text-gray-400'); })
+          .then(function() { return addLog('✅ Verification successful. Integration complete!', 150, 'text-green-400'); })
+          .then(function() {
+            document.getElementById('output-html-code').value = splitRes.html;
+            document.getElementById('output-css-code').value = splitRes.css;
+            btn.disabled = false;
+            switchRightTab('preview');
+            showToast('Integration complete! Preview is live.', 'success');
+          });
+      } else if (selectedFw === 'react') {
+        result = isReactBg ? bg.code : convertToReact(integrationBg);
+        logMessage = '⚛️ Compiled to functional React component with useEffect & useRef hook.';
+        extraFwLog = '💡 Info: Standalone React component generated. Save it and import it in your page layout.';
+      } else if (selectedFw === 'next') {
+        result = isReactBg ? '"use client";\n\n' + bg.code : convertToNext(integrationBg);
+        logMessage = '🚀 Compiled Next.js component with client directive for dynamic loading.';
+        extraFwLog = '💡 Info: Standalone client component generated. Place this component inside your Page/Layout.';
+      } else if (selectedFw === 'vue') {
+        result = convertToVue(integrationBg);
+        logMessage = '💚 Built Vue 3 composition-api template and scoped CSS component.';
+        extraFwLog = '💡 Info: Standalone Vue 3 single file component (SFC) compiled. Save as a .vue file to import.';
+      } else if (selectedFw === 'svelte') {
+        result = convertToSvelte(integrationBg);
+        logMessage = '🔥 Created Svelte component binding canvas references onMount.';
+        extraFwLog = '💡 Info: Standalone Svelte component compiled. Import it inside your Svelte layout files.';
+      } else if (selectedFw === 'tailwind') {
+        result = convertToTailwind(integrationBg);
+        logMessage = '🌊 Adapted markup structure with standard Tailwind layout classes.';
+        extraFwLog = '💡 Info: Tailwind components generate separate markup, styling rules, and canvas scripts.';
+      }
+      
+      return addLog(logMessage, 200)
+        .then(function() {
+          if (extraFwLog) {
+            return addLog(extraFwLog, 150, 'text-blue-400');
+          }
+        })
+        .then(function() { return addLog('📦 Formatting code syntax layers...', 150, 'text-gray-400'); })
+        .then(function() { return addLog('✅ Verification successful. Integration complete!', 150, 'text-green-400'); })
+        .then(function() {
+          document.getElementById('output-code').value = result;
+          btn.disabled = false;
+          switchRightTab('preview');
+          showToast('Integration complete! Preview is live.', 'success');
+        });
+    });
+}
+
+function updateDetectedSelectors() {
+  var html = '';
+  if (selectedFw === 'split') {
+    html = document.getElementById('input-html-code').value.trim();
+  } else {
+    html = document.getElementById('input-code').value.trim();
+  }
+  
+  var container = document.getElementById('detected-selectors-container');
+  var list = document.getElementById('detected-selectors');
+  if (!html) {
+    container.classList.add('hidden');
+    list.innerHTML = '';
+    return;
+  }
+  
+  try {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(html, 'text/html');
+    var selectors = [];
+    
+    var root = doc.body || doc.documentElement;
+    var elements = root.querySelectorAll('*');
+    
+    elements.forEach(function(el) {
+      var tag = el.tagName.toLowerCase();
+      if (['section', 'header', 'footer', 'main', 'article', 'aside'].indexOf(tag) !== -1) {
+        if (selectors.indexOf(tag) === -1) selectors.push(tag);
+      }
+      
+      if (el.id) {
+        var idSel = '#' + el.id;
+        if (selectors.indexOf(idSel) === -1) selectors.push(idSel);
+      }
+      
+      if (el.className && typeof el.className === 'string') {
+        var classes = el.className.split(/\s+/);
+        classes.forEach(function(cls) {
+          cls = cls.trim();
+          if (cls && cls.length > 2 && !/^(p|m|w|h|bg|text|flex|grid|border|rounded|shadow|overflow|absolute|relative|fixed|inset|justify|items|gap|top|left|right|bottom|transition|duration|ease|hover|focus|active)-\d+|^flex-|^grid-|^text-|^bg-|^font-|^items-|^justify-|^w-|^h-|^p-|^m-|^leading-|^tracking-|^duration-|^delay-|^ease-/i.test(cls)) {
+            var classSel = '.' + cls;
+            if (selectors.indexOf(classSel) === -1) selectors.push(classSel);
+          }
+        });
+      }
+    });
+    
+    selectors = selectors.slice(0, 10);
+    
+    if (selectors.length > 0) {
+      container.classList.remove('hidden');
+      list.innerHTML = '';
+      selectors.forEach(function(sel) {
+        var badge = document.createElement('button');
+        badge.className = 'px-2 py-1 bg-white/5 border border-white/10 rounded-md text-[10px] text-purple-300 hover:bg-purple-950/40 hover:border-purple-500/50 transition-all font-mono';
+        badge.textContent = sel;
+        badge.type = 'button';
+        badge.onclick = function() {
+          document.getElementById('target-selector').value = sel;
+          document.querySelectorAll('#detected-selectors button').forEach(function(b) {
+            b.classList.remove('border-purple-500', 'bg-purple-950/40', 'text-white');
+          });
+          badge.classList.add('border-purple-500', 'bg-purple-950/40', 'text-white');
+        };
+        list.appendChild(badge);
+      });
+    } else {
+      container.classList.add('hidden');
+      list.innerHTML = '';
+    }
+  } catch (e) {
+    console.warn('Selector extraction error:', e);
+  }
+}
+
+function copyResult(type) {
+  var id = 'output-code';
+  if (type === 'html') id = 'output-html-code';
+  if (type === 'css') id = 'output-css-code';
+  
+  var text = document.getElementById(id).value;
+  if (!text) { showToast('Generate integrated code first!', 'warning'); return; }
+  navigator.clipboard.writeText(text).then(function() { showToast('Copied to clipboard!', 'success'); });
+}
+
+function downloadResult(type) {
+  var content = '';
+  var filename = 'lumina-integrated';
+  
+  if (type === 'html') {
+    content = document.getElementById('output-html-code').value;
+    filename += '.html';
+  } else if (type === 'css') {
+    content = document.getElementById('output-css-code').value;
+    filename += '.css';
+  } else {
+    content = document.getElementById('output-code').value;
+    filename += (selectedFw === 'html' || selectedFw === 'tailwind') ? '.html' : '.txt';
+  }
+  
+  if (!content) { showToast('Generate integrated code first!', 'warning'); return; }
+  
+  var blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+  showToast('File downloaded!', 'success');
+}
+
+document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    renderCards(btn.dataset.cat);
+  });
+});
+
+var searchInput = document.getElementById('bg-search');
+if (searchInput) {
+  searchInput.addEventListener('input', function() {
+    searchQuery = this.value.trim();
+    renderCards(activeCat);
+  });
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+var selectedFw = 'html';
+document.querySelectorAll('.fw-tab').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.fw-tab').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    selectedFw = btn.dataset.fw;
+    
+    var singleInput = document.getElementById('single-input-wrapper');
+    var splitInput = document.getElementById('split-input-wrapper');
+    var singleOutput = document.getElementById('single-output-wrapper');
+    var splitOutput = document.getElementById('split-output-wrapper');
+    var selectorWrapper = document.getElementById('target-selector-wrapper');
+    
+    if (selectedFw === 'html' || selectedFw === 'split') {
+      if (selectorWrapper) selectorWrapper.style.display = 'block';
+    } else {
+      if (selectorWrapper) selectorWrapper.style.display = 'none';
+    }
+    
+    if (selectedFw === 'split') {
+      singleInput.style.display = 'none';
+      splitInput.style.display = 'flex';
+      singleOutput.style.display = 'none';
+      splitOutput.style.display = 'flex';
+    } else {
+      singleInput.style.display = 'flex';
+      splitInput.style.display = 'none';
+      singleOutput.style.display = 'flex';
+      splitOutput.style.display = 'none';
+      
+      var inputLabel = document.getElementById('input-label');
+      var inputCode = document.getElementById('input-code');
+      
+      if (selectedFw === 'html' || selectedFw === 'tailwind') {
+        inputLabel.textContent = 'Your HTML Code';
+        inputCode.placeholder = 'Paste your HTML code here...';
+      } else if (selectedFw === 'react' || selectedFw === 'next') {
+        inputLabel.textContent = 'Your React Component Code';
+        inputCode.placeholder = 'Paste your React component code here...';
+      } else if (selectedFw === 'vue') {
+        inputLabel.textContent = 'Your Vue Template/SFC Code';
+        inputCode.placeholder = 'Paste your Vue template or single file component code here...';
+      } else if (selectedFw === 'svelte') {
+        inputLabel.textContent = 'Your Svelte Component Code';
+        inputCode.placeholder = 'Paste your Svelte component code here...';
+      }
+    }
+    updateDetectedSelectors();
+  });
+});
+
+renderCards('All');
+
+var inputCode = document.getElementById('input-code');
+var inputHtmlCode = document.getElementById('input-html-code');
+if (inputCode) {
+  ['input', 'change', 'keyup', 'paste'].forEach(function(evt) {
+    inputCode.addEventListener(evt, updateDetectedSelectors);
+  });
+}
+if (inputHtmlCode) {
+  ['input', 'change', 'keyup', 'paste'].forEach(function(evt) {
+    inputHtmlCode.addEventListener(evt, updateDetectedSelectors);
+  });
+}
+
+var activeRightTab = 'code';
+
+function switchRightTab(tab) {
+  activeRightTab = tab;
+  var codeBtn = document.getElementById('rtab-code');
+  var previewBtn = document.getElementById('rtab-preview');
+  var codeSec = document.getElementById('code-editor-section');
+  var previewSec = document.getElementById('live-preview-section');
+  
+  if (tab === 'code') {
+    codeBtn.classList.add('active');
+    previewBtn.classList.remove('active');
+    codeSec.style.display = 'flex';
+    previewSec.style.display = 'none';
+  } else {
+    codeBtn.classList.remove('active');
+    previewBtn.classList.add('active');
+    codeSec.style.display = 'none';
+    previewSec.style.display = 'flex';
+    updateLivePreview();
+  }
+}
+
+function updateLivePreview() {
+  var iframe = document.getElementById('preview-iframe');
+  if (!iframe) return;
+  
+  var htmlContent = '';
+  if (selectedFw === 'split') {
+    var html = document.getElementById('output-html-code').value;
+    var css = document.getElementById('output-css-code').value;
+    
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(html, 'text/html');
+    var style = doc.createElement('style');
+    style.textContent = css;
+    if (doc.head) {
+      doc.head.appendChild(style);
+    } else {
+      doc.body.insertBefore(style, doc.body.firstChild);
+    }
+    htmlContent = doc.documentElement.outerHTML;
+  } else if (selectedFw === 'html' || selectedFw === 'tailwind') {
+    htmlContent = document.getElementById('output-code').value;
+  } else {
+    htmlContent = "<html><body style='background:#050510;color:#94a3b8;font-family:sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;margin:0;text-align:center;'>";
+    htmlContent += "<div><h3>💻 Component Mode Preview</h3><p style='font-size:12px;'>React/Vue/Svelte components run in your framework's build system.</p>";
+    htmlContent += "<p style='font-size:11px;color:#a78bfa;'>Copy the code and place it in your project's component files.</p></div>";
+    htmlContent += "</body></html>";
+  }
+  
+  try {
+    var doc = iframe.contentDocument || iframe.contentWindow.document;
+    doc.open();
+    doc.write(htmlContent);
+    doc.close();
+  } catch (e) {
+    console.warn("Live Preview Error:", e);
+  }
+}
+
+// Add real-time preview event listeners on output change (debounced)
+var debouncedPreview = debounce(updateLivePreview, 300);
+var outCode = document.getElementById('output-code');
+var outHtml = document.getElementById('output-html-code');
+var outCss = document.getElementById('output-css-code');
+
+if (outCode) {
+  ['input', 'change', 'keyup', 'paste'].forEach(function(evt) {
+    outCode.addEventListener(evt, debouncedPreview);
+  });
+}
+if (outHtml) {
+  ['input', 'change', 'keyup', 'paste'].forEach(function(evt) {
+    outHtml.addEventListener(evt, debouncedPreview);
+  });
+}
+if (outCss) {
+  ['input', 'change', 'keyup', 'paste'].forEach(function(evt) {
+    outCss.addEventListener(evt, debouncedPreview);
+  });
+}
+
+</script>
+
+<footer class="border-t border-white/[0.05] mt-20">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+      <div class="flex items-center gap-2.5">
+        <div style="width:32px;height:32px;background:linear-gradient(135deg,#db2777,#7c3aed);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <span class="outfit font-bold text-xl text-white tracking-tight">Lumina<span class="text-purple-400">Backgrounds</span></span>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+        <span class="flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Supports:</span>
+        <span class="text-gray-400 font-medium">React</span>
+        <span class="text-gray-600">&bull;</span>
+        <span class="text-gray-400 font-medium">Next.js</span>
+        <span class="text-gray-600">&bull;</span>
+        <span class="text-gray-400 font-medium">Vue</span>
+        <span class="text-gray-600">&bull;</span>
+        <span class="text-gray-400 font-medium">Svelte</span>
+        <span class="text-gray-600">&bull;</span>
+        <span class="text-gray-400 font-medium">Tailwind</span>
+        <span class="text-gray-600">&bull;</span>
+        <span class="text-gray-400 font-medium">HTML/CSS</span>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.04]">
+      <p class="text-gray-600 text-sm">&copy; 2026 LuminaBackgrounds. 150 production-ready animated backgrounds.</p>
+      <div class="flex items-center gap-2 text-xs text-gray-600">
+        <span>Built with</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#ef4444" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span>by Aditya</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-notification" class="toast"></div>
+
+</body>
+</html>
